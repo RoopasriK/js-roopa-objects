@@ -1,3 +1,5 @@
+//Object creation with braces
+
 const book = {
      id:1203,
      title:'nancy drew',
@@ -78,3 +80,46 @@ console.log('Cost:',cost);
 book.setCost('160');
 cost=book.getCost();
 console.log('Cost:',cost);
+
+//-------------------------------------------------------
+
+//Object creation with function
+ 
+ object={
+   a:this,
+   fn(){
+     console.log(this);
+     return{
+       c:this,
+       fn1(){
+         console.log(this);
+       }
+     }
+   }
+ }
+
+ function thing(){
+   this.sno=103;
+   this.setSno = function(sno){
+     this.sno=sno;
+   }
+ }
+ const thing = new thing();
+ console.log(thing);
+ console.log(thing.sno);
+ thing.setSno(105);
+console.log('Sno:',sno);
+
+function Person(id){
+  let _id=id;
+  this.name='hi';
+  this.setId = function(id){
+    _id=id;
+  }
+  this.getId=function(){
+    return _id;
+  }
+}
+const person =  new Person('10');
+person.setId(2)
+console.log(person.getId())
